@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="css/st.css" />
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  </head>
+  <body>
+    <nav>
+    <div class="container">
+      <div class="navigation">
+        <div class="inventaris-text">
+          <img src="foto/logo.png" alt="">
+            <p>Inventaris</p>
+        </div>
+        <div class="menu-toggle"></div>
+        <ul class="list">
+          <li>
+            <div class="icon">
+              <ion-icon name="people-outline"></ion-icon>
+            </div>
+              <a href="#">Master Pengajar</a>
+          </li>
+          <li>
+            <div class="icon">
+              <ion-icon name="people-outline"></ion-icon>
+            </div>
+            <a href="#">Master Barang</a>
+          </li>
+          <li>
+            <div class="icon">
+              <ion-icon name="people-outline"></ion-icon>
+            </div>
+            <a href="#">Daftar Transaksi</a>
+          </li>
+        </ul>
+        <ul>
+            <li>
+                <div class="icon">
+                    <ion-icon name=""></ion-icon>
+                </div>
+                <a href="">Log Out</a> <!--mau di ganti jadi button boleh tinggal ganti nanti urang benerin css nya-->
+            </li>
+        </ul>
+      </div>
+    </div> 
+    </nav>
+        
+    <section>
+        <div class="bg-form">
+            <div class="header">
+                <h1 class="pageheader">Form peminjaman</h1>
+            </div>
+            <div class="garis2"></div>
+            <div class="bg-from2">
+                <div class="panel panel-default">
+                    <div class="panel-text">Input Barang</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="pageform">
+                                <form action="">
+                                    <div class="form-grup">
+                                        <label> Kode Pinjam</label>
+                                        <input type="text" class="form-control" readonly>
+                                    </div>
+                                    <div class="form-grup">
+                                        <label>Kategori Barang</label>
+                                        <select name="kategori_barang" id="" class="form-control">
+                                            <option value="Pilih Kategori">Pilih Kategori</option>
+                                            <option value=""></option><!--PHP KATEGORI OPTION-->
+                                        </select>
+                                    </div>
+                                    <div class="form-grup">
+                                        <label >Nama Barang</label>
+                                        <select name="nama_barang" id="" class="form-control">
+                                            <option value="Pilih nama barang">Pilih Barang</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-barang">
+                                        <label>Jumlah pinjam</label>
+                                        <input type="number" class="form-control" placeholder="Masukin Jumlah ">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="pageform">
+                                <div class="form-barang">
+                                    <label> Nama Peminjama</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="form-grup">
+                                    <label>Tanggal Pinjam</label>
+                                    <input type="date" placeholder="Tanggal Peminjam" class="form-control">
+                                </div>
+                                <div class="form-grup">
+                                    <label for="">Tanggal Pengembalian</label>
+                                    <input type="date" placeholder="Tanggal pengembalian" class="form-control">
+                                </div>
+                                <div class="form-grup">
+                                    <label for="">Keterangan</label>
+                                    <select name="keterangan" id="" class="form-control">
+                                        <option value="">Keterangan</option>
+                                        <option value="sedang dipinjam">Sedang di pinjam</option>
+                                    </select>
+                                </div>
+                                <button type="sumbit" name="submit" style="background-color: #333; color: #fff;" class="btn">Submit</button>
+                                <a href="" class="btn btn-default">Batal</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php
+    if(isset($_POST['masuk'])) {
+        mysqli_query ($koneksi, "insert into transaksi set
+        nama_barang = '$_POST[nama_barang]',
+        kategori = '$_POST[kategori_barang]',
+        jumlah = '$_POST[jumlah]',
+        keterangan = '$_POST[keterangan]' ");
+
+        echo "<script>alert ('data masuk');</script>";
+    }
+    else {
+        echo "<script> alert ('gagal')</script>";
+    }
+
+?>
+    </body>
+</html>

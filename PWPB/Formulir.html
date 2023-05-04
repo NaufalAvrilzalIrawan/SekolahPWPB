@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Formulir:)</title>
+</head>
+<body>
+    <form action="Formulir.php" method="post">
+    <center>
+    <table cellpadding="5">
+        <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td><input type="text" name="nama" placeholder="Masukan Nama Anda"></input></td>
+        </tr>
+        <tr>    
+            <td>Alamat</td>
+            <td>:</td>
+            <td><input type="text" name="alamat" placeholder="Masukan Alamat Anda"></input></td>
+        </tr>
+        <tr>
+            <td>Tempat/Tgl Lahir</td>
+            <td>:</td>
+            <td>
+			<input type="text" name="spawn"></input>/
+            <select nama="tgl">
+                <?php 
+                for($i='1';$i<='31';$i++);
+                echo "<option value=" .$a. "</option>";
+                ?>
+            </select>
+			<select name="bln"></select>
+			<select name="thn"></select>
+			<td>
+        </tr>
+		<tr>
+			<td>Jenis Kelamin</td>
+			<td>:</td>
+			<td>
+				<input type="radio" name="kelamin">L</input> / <input type="radio" name="kelamin">P</input>
+			</td>
+		</tr>
+		<tr>
+			<td>Hape</td>
+			<td>:</td>
+			<td><input type="text" name="hp"></input></td>
+		</tr>
+		<tr>
+            <td colspan="3" align="right"><input type="submit" name="submit" value="kirim"></td>
+        </tr>
+    </table>
+    </center>    
+    </form>
+</body>
+</html>
